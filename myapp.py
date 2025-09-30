@@ -62,6 +62,13 @@ use_pca = st.sidebar.checkbox("Project to 2 components with PCA for visualizatio
 test_size = st.sidebar.slider("Test set size (%)", min_value=5, max_value=50, value=20)
 random_state = st.sidebar.number_input("Random seed", value=42, step=1)
 
+st.sidebar.subheader("KNN hyperparameters")
+k = st.sidebar.slider("K (neighbors)", min_value=1, max_value=50, value=5)
+st.sidebar.selectbox("Weight fucntion",["Uniform", "Distance"])
+st.sidebar.selectbox("Distance metrics", ["minkowski", "euclidean", "manhattan"])
+
+
+
 
 
 
