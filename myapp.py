@@ -15,7 +15,7 @@ def load_sample(name):
     df = load_breast_cancer(as_frame=True)
   else:
     return None
-  df = pd.concat[df.frame.reset_index(drop=True)], axis=1]
+  df = pd.concat([df.frame.reset_index(drop=True)], axis=1)
   return df
 
 data_source = st.sidebar.selectbox["Upload CSV", "Sample dataset (Iris)", "Sample dataset (Wine)", "Sample dataset (Breast Cancer)"]
