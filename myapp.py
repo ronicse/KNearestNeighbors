@@ -48,7 +48,9 @@ if len(numeric_cols) < 2:
   st.error("Need at least two numeric columns for KNearest Neighbors")
   st.stop()
 
-target_col = st.selectbox("Select output target variable", numeric_cols, index=len(numeric_cols)-1)
+target_col = st.selectbox("Select output target variable", numeric_cols)
+features = [for c in numeric_cols if c != target_col]
+fatures = st.multiselect("Features (numeric)", options=features, default=features)
 
 
 
