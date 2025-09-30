@@ -48,6 +48,7 @@ if len(numeric_cols) < 2:
   st.error("Need at least two numeric columns for KNearest Neighbors")
   st.stop()
 
+target_col = st.selectbox("Select output target variable", numeric_cols)
 
 
 
