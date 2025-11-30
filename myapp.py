@@ -70,6 +70,7 @@ st.sidebar.selectbox("Distance metrics", ["minkowski", "euclidean", "manhattan"]
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size/100.0, random_state=int(random_state))
 
+st.subheader("Test")
 
 
 
