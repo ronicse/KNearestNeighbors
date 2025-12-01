@@ -64,7 +64,7 @@ random_state = st.sidebar.number_input("Random seed", value=42, step=1)
 
 st.sidebar.subheader("KNN hyperparameters")
 k = st.sidebar.slider("K (neighbors)", min_value=1, max_value=50, value=5)
-weights = st.sidebar.selectbox("Weight fucntion",["Uniform", "Distance"])
+weights = st.sidebar.selectbox("Weight fucntion",["uniform", "distance"])
 metric = st.sidebar.selectbox("Distance metrics", ["minkowski", "euclidean", "manhattan"])
 
 from sklearn.model_selection import train_test_split
