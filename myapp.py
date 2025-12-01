@@ -64,7 +64,7 @@ random_state = st.sidebar.number_input("Random seed", value=42, step=1)
 
 st.sidebar.subheader("KNN hyperparameters")
 k = st.sidebar.slider("K (neighbors)", min_value=1, max_value=50, value=5)
-weights = st.sidebar.selectbox("Weight fucntion",["Uniform", "Distance"])
+weights = st.sidebar.selectbox("Weight fucntion",["uniform", "distance"])
 metric = st.sidebar.selectbox("Distance metrics", ["minkowski", "euclidean", "manhattan"])
 
 from sklearn.model_selection import train_test_split
@@ -88,7 +88,7 @@ clf = KNeighborsClassifier(n_neighbors=int(k), weights=weights, metric=metric)
 clf.fit(X_train, y_train)
 
 
-from sklearn.metrics import accuracy_score, classfication_report, confusion_matrix
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 y_pred = clf.predict(X_test)
 acc = accuracy_score(y_test, y_pred)
 report = classification_report(y_test, y_pred, output_dict=True)
