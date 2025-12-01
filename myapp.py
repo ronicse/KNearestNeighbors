@@ -50,7 +50,7 @@ if len(numeric_cols) < 2:
 
 target_col = st.selectbox("Select output target variable", numeric_cols)
 features = [c for c in numeric_cols if c != target_col]
-fatures = st.multiselect("Features (numeric)", options=features, default=features)
+features = st.multiselect("Features (numeric)", options=features, default=features)
 
 X = df[features].copy()
 y = df[target_col].copy()
@@ -69,6 +69,39 @@ st.sidebar.selectbox("Distance metrics", ["minkowski", "euclidean", "manhattan"]
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size/100.0, random_state=int(random_state))
+
+
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+if scale_method == "StandardScaler":
+  scaler = StandardScaler()
+  X_train = pd.DataFrame(scaler.fit_transform(X_train), columns=features)
+  X_test = pd.DataFrame(scaler.transform(X_test), columns = features)
+elif scale_method == "MinMaxScaler":
+  scaler = MinMaxScaler()
+  X_train = pd.DataFrame(scaler.fit_transform(X_train), columns=features)
+  X_test = pd.DataFrame(scaler.transform(X_test), columns = features)
+else:
+  scaler = None
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
