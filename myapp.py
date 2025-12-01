@@ -103,7 +103,7 @@ with col1:
   st.dataframe(pd.DataFrame(report).transpose())
 with col2:
   st.write("### Confusion Matrix")
-  fig, ax = plt.subplot()
+  fig, ax = plt.subplost()
   im = ax.matshow(cm)
   for (i, j), val in np.ndenumerate(cm):
     ax.text(j, i, int(val), ha='center', va='center')
