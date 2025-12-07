@@ -132,6 +132,11 @@ if use_pca:
 else:
   st.info("Enable PCA in the sidebar to see 2D visualization")
 
+label_map = {
+  0:"Iris-setosa",
+  1:"Iris-versicolor",
+  2:"Iris-virginica"
+}
 
 st.write("## Try a prediction")
 with st.form("predict_form"):
@@ -146,7 +151,7 @@ if submitted:
   if scaler is not None:
     x_sample = scaler.transform(x_sample)
     pred = clf.predict(x_sample)[0]
-    st.success(f"Predicted: {pred}")
+    st.success(f"Predicted: {label_map[pred]}")
 
 import pickle
 def create_downloadlink_model(obj, filename="model.pkl"):
@@ -157,11 +162,7 @@ def create_downloadlink_model(obj, filename="model.pkl"):
     file_name=filename,
     mime="application/octet_stream"
   )
-label_map = {
-  0:"Iris-setosa",
-  1:"Iris-versicolor",
-  2:"Iris-virginica"
-}
+
 create_downloadlink_model(
   {'model':clf, 'scaler':scaler, 'features':features, 'lable_map':label_map},
   filename="knn_model.pkl"
