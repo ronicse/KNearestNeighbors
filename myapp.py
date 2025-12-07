@@ -124,7 +124,7 @@ if use_pca:
   labels_vis = pd.concat([y_train, y_test])
   fig, ax = plt.subplots()
   for lab in np.unique(labels_vis):
-    mask = lables_vis == lab  
+    mask = labels_vis == lab  
     ax.scatter(X_vis[mask, 0], X_vis[mask, 1], label=str(lab), alpha=0.7)
   ax.set_xlabel("PCA1")
   ax.set_ylabel("PCA2")
