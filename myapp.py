@@ -148,8 +148,24 @@ if submitted:
     pred = clf.predict(x_sample)[0]
     st.success(f"Predicted: {pred}")
 
-
-
+import pickle
+def create_downloadlink_model(obj, filename="model.pkl"):
+  buf = pickle.dumps(obj)
+  st.download_button(
+    label="Download Model",
+    data=buf,
+    file_name=filename,
+    mime="application/octet_stream"
+  )
+label_map = {
+  0:"Iris-setosa",
+  1:"Iris-versicolor",
+  2:"Iris-virginica"
+}
+create_downloadlink_model(
+  {'model':clf, 'scaler':scaler, 'features':features, 'lable_map':label_map}
+  filename="knn_model.pkl"
+)
 
 
 
