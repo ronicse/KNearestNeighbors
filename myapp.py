@@ -116,7 +116,21 @@ with col2:
   st.pyplot(fig)
 
   
-
+from sklearn.decomposition import PCA
+st.write("## Visualization")
+if use_pca:
+  pca = PCA(n_components=2)
+  X_vis = pca.fit_transform(pd.concat([X_train, X_test]))
+  labels_vis = pd.concat([y_train, y_test])
+  fig, ax = plt.subplots()
+  for lab in np.unique(labels_vis):
+    mask = lables_vis == lab  
+    ax.scatter(X_vis[mask, 0], X_vis[mask, 1], label=str(lab), alpha=0.7)
+  ax.set_xlabel("PCA1")
+  ax.set_ylabel("PCA2")
+  st.pyplot(fig)
+else:
+  st.info("Enable PCA in the sidebar to see 2D visualization")
 
 
 
