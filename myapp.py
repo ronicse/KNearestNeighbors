@@ -163,7 +163,7 @@ label_map = {
   2:"Iris-virginica"
 }
 create_downloadlink_model(
-  {'model':clf, 'scaler':scaler, 'features':features, 'lable_map':label_map}
+  {'model':clf, 'scaler':scaler, 'features':features, 'lable_map':label_map},
   filename="knn_model.pkl"
 )
 
