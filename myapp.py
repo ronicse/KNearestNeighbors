@@ -133,7 +133,13 @@ else:
   st.info("Enable PCA in the sidebar to see 2D visualization")
 
 
-
+st.write("## Try a prediction")
+with st.form("predict_form"):
+  input_vals = {}
+  for f in features:
+    default = float(X[f].mean())
+    input_vals[f] = st.number_input(f, value=float(default))
+  submitted = st.form_submit_button("Predict")
 
 
 
