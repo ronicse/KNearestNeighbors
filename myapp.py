@@ -141,6 +141,12 @@ with st.form("predict_form"):
     input_vals[f] = st.number_input(f, value=float(default))
   submitted = st.form_submit_button("Predict")
 
+if submitted:
+  x_sample = np.array([input_vals[f] for f in features]).reshape(1, -1)
+  if scaler is not None:
+    x_sample = scaler.transform(x_sample)
+    pred = clf.predict(x_sample)[0]
+    st.success(f"Predicted: {pred}")
 
 
 
