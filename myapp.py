@@ -76,10 +76,14 @@ if scale_method == "StandardScaler":
   scaler = StandardScaler()
   X_train = pd.DataFrame(scaler.fit_transform(X_train), columns=features)
   X_test = pd.DataFrame(scaler.transform(X_test), columns = features)
+  st.write("### Standard Scaling")
+  st.write(X_train.head())
 elif scale_method == "MinMaxScaler":
   scaler = MinMaxScaler()
   X_train = pd.DataFrame(scaler.fit_transform(X_train), columns=features)
   X_test = pd.DataFrame(scaler.transform(X_test), columns = features)
+  st.write("### Min-Max Scling")
+  st.write(X_train.head())
 else:
   scaler = None
 
